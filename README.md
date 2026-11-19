@@ -1,7 +1,7 @@
 # Bioinformatics_reference_guide
 A quick reference for some general bioinformatics terminology/tools/tasks, and (epi)genetics analysis of nanopore data
 
-##Contents
+## Contents
 []
 []
 []
@@ -162,17 +162,17 @@ A quick reference for some general bioinformatics terminology/tools/tasks, and (
 ## Tools and Tasks
 | Tool | Language | Usage | Example | 
 | --- | --- | --- | --- |
-| `head` | bash | Prints the first lines of a file, so you can check its layout without opening all of it | `head -n 5 <table_csv>` |
-| `wc` | bash | Counts lines, words or characters; with `-l` it gives the number of rows in a file | `wc -l <table_csv>` |
-| `cut` | bash | Keeps chosen columns of a delimited text file | `cut -d, -f1,3 <table_csv> > <out_csv>` |
-| `sort` | bash | Orders the lines of a file by one or more columns, as text or as numbers | `sort -k1,1 -k2,2n <in_bed> > <sorted_bed>` |
-| `uniq` | bash | Collapses repeated neighbouring lines; after `sort`, `uniq -c` counts how often each value occurs | `cut -d, -f2 <table_csv> \| sort \| uniq -c` |
-| `grep` | bash | Prints the lines of a file matching a word or pattern | `grep -w "<sample_id>" <metadata_csv>` |
-| `awk` | bash | Reads a text file line by line and works on its columns; filters rows, reorders columns, converts between CSV, BED and bedMethyl | `awk -F, 'NR==1 \|\| $5 >= 10' <table_csv> > <out_csv>` |
-| `samtools` | bash | Reads and writes SAM, BAM and CRAM files; views headers and reads, sorts, indexes, extracts a region, counts reads | `samtools view -b -o <chrM_bam> <sorted_bam> chrM` |
-| `modkit` | bash | Oxford Nanopore's tool for BAMs with modified-base calls; piles up 6mA, 5mC and 5hmC calls per position into a bedMethyl file | `modkit pileup <in_bam> <out_bedmethyl> --region chrM --threads <threads>` |
-| `ft` (fibertools) | bash | Toolkit for PacBio Fiber-seq data; piles up 6mA calls from PacBio HiFi BAMs | `ft pileup <in_bam> --rgn chrM --m6a --threads <threads> > <out_bed>` |
-| `bedtools` | bash | Compares sets of genomic intervals; keeps positions that overlap a region or probe list, extracts sequence | `bedtools intersect -a <in_bedmethyl> -b <positions_bed> -u > <out_bedmethyl>` |
+| `head` | bash | Prints the first lines of a file, so you can check its layout without opening all of it | `head -n 5 <table.csv>` |
+| `wc` | bash | Counts lines, words or characters; with `-l` it gives the number of rows in a file | `wc -l <table.csv>` |
+| `cut` | bash | Keeps chosen columns of a delimited text file | `cut -d, -f1,3 <table.csv> > <out.csv>` |
+| `sort` | bash | Orders the lines of a file by one or more columns, as text or as numbers | `sort -k1,1 -k2,2n <in.bed> > <sorted.bed>` |
+| `uniq` | bash | Collapses repeated neighbouring lines; after `sort`, `uniq -c` counts how often each value occurs | `cut -d, -f2 <table.csv> \| sort \| uniq -c` |
+| `grep` | bash | Prints the lines of a file matching a word or pattern | `grep -w "<sample_id>" <metadata.csv>` |
+| `awk` | bash | Reads a text file line by line and works on its columns; filters rows, reorders columns, converts between CSV, BED and bedMethyl | `awk -F, 'NR==1 \|\| $5 >= 10' <table.csv> > <out.csv>` |
+| `samtools` | bash | Reads and writes SAM, BAM and CRAM files; views headers and reads, sorts, indexes, extracts a region, counts reads | `samtools view -b -o <chrM.bam> <sorted.bam> chrM` |
+| `modkit` | bash | Oxford Nanopore's tool for BAMs with modified-base calls; piles up 6mA, 5mC and 5hmC calls per position into a bedMethyl file | `modkit pileup <in.bam> <out_bedmethyl.bed> --region chrM --threads <threads>` |
+| `ft` (fibertools) | bash | Toolkit for PacBio Fiber-seq data; piles up 6mA calls from PacBio HiFi BAMs | `ft pileup <in.bam> --rgn chrM --m6a --threads <threads> > <out.bed>` |
+| `bedtools` | bash | Compares sets of genomic intervals; keeps positions that overlap a region or probe list, extracts sequence | `bedtools intersect -a <in_bedmethyl.bed> -b <positions.bed> -u > <out_bedmethyl.bed>` |
 | `conda` | bash | Installs tools into separate environments, so their versions do not clash | `conda activate <env_name>` |
 | `srun` | bash | Slurm command that requests resources on a compute node; with `--pty bash` it opens an interactive session | `srun --partition=<partition> --cpus-per-task=<threads> --mem=<memory_gb>G --time=<hh:mm:ss> --pty bash` |
 | `tmux` | bash | Keeps terminal sessions running after you disconnect, so long jobs survive a dropped connection | `tmux new -s <session_name>` |
@@ -185,25 +185,25 @@ A quick reference for some general bioinformatics terminology/tools/tasks, and (
 | `mv` | bash | Moves or renames a file | `mv <old_name> <new_name>` |
 | `rm` | bash | Deletes a file permanently (there is no recycle bin) | `rm <file>` |
 | `ln` | bash | Creates a link to a file, so it appears in a second place without being copied | `ln -s <target_file> <link_name>` |
-| `cat` | bash | Prints a whole file, or joins several files end to end | `cat <a_txt> <b_txt> > <combined_txt>` |
-| `less` | bash | Scrolls through a file one screen at a time; `-S` stops long lines wrapping | `less -S <table_csv>` |
-| `tail` | bash | Prints the last lines of a file; `-n +2` prints everything except the header | `tail -n +2 <table_csv>` |
-| `column` | bash | Aligns the columns of a delimited file for reading | `column -t -s, <table_csv> \| less -S` |
-| `tr` | bash | Replaces or deletes single characters, such as commas to tabs | `tr ',' '\t' < <in_csv> > <out_tsv>` |
+| `cat` | bash | Prints a whole file, or joins several files end to end | `cat <a.txt> <b.txt> > <combined.txt>` |
+| `less` | bash | Scrolls through a file one screen at a time; `-S` stops long lines wrapping | `less -S <table.csv>` |
+| `tail` | bash | Prints the last lines of a file; `-n +2` prints everything except the header | `tail -n +2 <table.csv>` |
+| `column` | bash | Aligns the columns of a delimited file for reading | `column -t -s, <table.csv> \| less -S` |
+| `tr` | bash | Replaces or deletes single characters, such as commas to tabs | `tr ',' '\t' < <in.csv> > <out.tsv>` |
 | `sed` | bash | Finds and replaces text line by line | `sed 's/<old_text>/<new_text>/g' <in_file> > <out_file>` |
-| `paste` | bash | Joins files side by side, line by line | `paste <a_tsv> <b_tsv> > <out_tsv>` |
+| `paste` | bash | Joins files side by side, line by line | `paste <a.tsv> <b.tsv> > <out.tsv>` |
 | `diff` | bash | Shows the lines that differ between two files | `diff <a_file> <b_file>` |
 | `find` | bash | Searches a folder tree for files by name, size or date | `find <dir> -name "*.bam"` |
-| `basename` | bash | Strips the folder, and optionally the extension, from a path | `basename <in_bam> .bam` |
+| `basename` | bash | Strips the folder, and optionally the extension, from a path | `basename <in.bam> .bam` |
 | `xargs` | bash | Runs a command once for each item it receives from a pipe | `ls <bam_dir>/*.bam \| xargs -n 1 samtools index` |
-| `tee` | bash | Shows output on screen and saves it to a file at the same time | `<command> \| tee <log_txt>` |
-| `gzip` / `zcat` | bash | Compresses a file; `zcat` prints a compressed file without unpacking it | `zcat <table_csv_gz> \| head` |
-| `tar` | bash | Packs a folder into one archive file, or unpacks one | `tar -xzf <archive_tar_gz>` |
-| `bgzip` | bash | Compresses a file in blocks so it can be indexed | `bgzip <in_bed>` |
-| `tabix` | bash | Indexes a bgzip-compressed, sorted position file and fetches one region from it | `tabix -p bed <in_bed_gz>` |
+| `tee` | bash | Shows output on screen and saves it to a file at the same time | `<command> \| tee <log.txt>` |
+| `gzip` / `zcat` | bash | Compresses a file; `zcat` prints a compressed file without unpacking it | `zcat <table.csv.gz> \| head` |
+| `tar` | bash | Packs a folder into one archive file, or unpacks one | `tar -xzf <archive.tar.gz>` |
+| `bgzip` | bash | Compresses a file in blocks so it can be indexed | `bgzip <in.bed>` |
+| `tabix` | bash | Indexes a bgzip-compressed, sorted position file and fetches one region from it | `tabix -p bed <in.bed.gz>` |
 | `du` | bash | Reports how much disk space a folder uses | `du -sh <dir>` |
 | `df` | bash | Reports free space on each drive | `df -h` |
-| `chmod` | bash | Changes who can read, write or run a file | `chmod +x <script_sh>` |
+| `chmod` | bash | Changes who can read, write or run a file | `chmod +x <script.sh>` |
 | `md5sum` | bash | Computes a checksum to confirm a file was copied or downloaded intact | `md5sum <file>` |
 | `wget` | bash | Downloads a file from a web address | `wget <url>` |
 | `rsync` | bash | Copies folders, skipping files that are already up to date; can resume | `rsync -av <source_dir>/ <dest_dir>/` |
@@ -211,29 +211,29 @@ A quick reference for some general bioinformatics terminology/tools/tasks, and (
 | `history` | bash | Lists the commands you ran earlier | `history \| grep "modkit pileup"` |
 | `man` | bash | Opens the manual for a command | `man sort` |
 | `nano` | bash | A simple text editor inside the terminal | `nano <file>` |
-| `dorado` | bash | Oxford Nanopore's basecaller; turns raw signal into reads and calls modified bases | `dorado basecaller sup <pod5_dir> --modified-bases 6mA > <calls_bam>` |
-| `minimap2` | bash | Aligns long reads to a reference; `-y` carries the modification tags over | `samtools fastq -T MM,ML <calls_bam> \| minimap2 -ax map-ont -y <ref_fasta> - \| samtools sort -o <sorted_bam>` |
-| `pbmm2` | bash | PacBio's wrapper around minimap2 for aligning HiFi BAMs | `pbmm2 align <ref_fasta> <in_bam> <out_bam> --sort` |
-| `modkit summary` | bash | Reports which modifications a BAM contains and how many calls pass the threshold | `modkit summary <in_bam>` |
-| `aligned_bam_to_cpg_scores` | bash | PacBio's pb-CpG-tools; piles up 5mC at CpG sites from HiFi BAMs | `aligned_bam_to_cpg_scores --bam <in_bam> --output-prefix <out_prefix>` |
-| `MethylDackel` | bash | Extracts per-CpG methylation from bisulfite-sequencing BAMs | `MethylDackel extract <ref_fasta> <in_bam>` |
-| `bismark` | bash | Aligns bisulfite-sequencing reads and calls methylation | `bismark --genome <genome_dir> -1 <R1_fastq_gz> -2 <R2_fastq_gz>` |
-| `pandas` | Python | Library for tables (data frames); reads CSVs, filters sites, joins metadata, reshapes per-sample files into one wide matrix | `d = pd.read_csv("<table_csv>")` |
+| `dorado` | bash | Oxford Nanopore's basecaller; turns raw signal into reads and calls modified bases | `dorado basecaller sup <pod5_dir> --modified-bases 6mA > <calls.bam>` |
+| `minimap2` | bash | Aligns long reads to a reference; `-y` carries the modification tags over | `samtools fastq -T MM,ML <calls.bam> \| minimap2 -ax map-ont -y <ref.fasta> - \| samtools sort -o <sorted.bam>` |
+| `pbmm2` | bash | PacBio's wrapper around minimap2 for aligning HiFi BAMs | `pbmm2 align <ref.fasta> <in.bam> <out.bam> --sort` |
+| `modkit summary` | bash | Reports which modifications a BAM contains and how many calls pass the threshold | `modkit summary <in.bam>` |
+| `aligned_bam_to_cpg_scores` | bash | PacBio's pb-CpG-tools; piles up 5mC at CpG sites from HiFi BAMs | `aligned_bam_to_cpg_scores --bam <in.bam> --output-prefix <out_prefix>` |
+| `MethylDackel` | bash | Extracts per-CpG methylation from bisulfite-sequencing BAMs | `MethylDackel extract <ref.fasta> <in.bam>` |
+| `bismark` | bash | Aligns bisulfite-sequencing reads and calls methylation | `bismark --genome <genome_dir> -1 <R1.fastq.gz> -2 <R2.fastq.gz>` |
+| `pandas` | Python | Library for tables (data frames); reads CSVs, filters sites, joins metadata, reshapes per-sample files into one wide matrix | `d = pd.read_csv("<table.csv>")` |
 | `matplotlib` | Python | Library for plotting; scatter plots and multi-page PDFs | `plt.scatter(d["<x_column>"], d["<y_column>"])` |
 | `numpy` | Python | Library for numeric arrays and fast maths on them | `np.log2(x + 1)` |
 | `scipy` | Python | Library of statistical tests and scientific functions | `stats.spearmanr(d["age"], d["<site>"])` |
 | `statsmodels` | Python | Library for regression models and multiple-testing correction | `multipletests(pvals, method="fdr_bh")` |
 | `scikit-learn` | Python | Library for machine learning, including elastic net and cross-validation | `ElasticNetCV(l1_ratio=0.5, cv=LeaveOneOut()).fit(X, y)` |
 | `seaborn` | Python | Library for statistical plots built on matplotlib | `sns.regplot(data=d, x="age", y="<site>")` |
-| `pysam` | Python | Library for reading BAM files, including each read's modification calls | `for read in pysam.AlignmentFile("<in_bam>").fetch("chrM"): read.modified_bases` |
-| `pyranges` | Python | Library for genomic interval tables, like bedtools inside Python | `pr.read_bed("<in_bed>")` |
-| `data.table` | R | Package for fast reading, writing and joining of large tables | `merge(fread("<a_csv>"), fread("<b_csv>"), by = "<key_column>")` |
+| `pysam` | Python | Library for reading BAM files, including each read's modification calls | `for read in pysam.AlignmentFile("<in.bam>").fetch("chrM"): read.modified_bases` |
+| `pyranges` | Python | Library for genomic interval tables, like bedtools inside Python | `pr.read_bed("<in.bed>")` |
+| `data.table` | R | Package for fast reading, writing and joining of large tables | `merge(fread("<a.csv>"), fread("<b.csv>"), by = "<key_column>")` |
 | `glmnet` | R | Package for lasso, ridge and elastic net regression with built-in cross-validation; builds age predictors | `fit <- cv.glmnet(x, y, alpha = 0.5)` |
 | `minfi` | R | Package that reads Illumina methylation array IDAT files, normalises them, and returns beta values | `beta <- getBeta(preprocessNoob(RGset))` |
 | `methylclock` | R | Package that applies published epigenetic clocks (Horvath, Hannum, PhenoAge) to a beta matrix | `ages <- DNAmAge(beta)` |
 | `ggplot2` | R | Package for plots built up in layers | `ggplot(d, aes(age, <site>)) + geom_point()` |
 | `GenomicRanges` | R | Package for genomic intervals and their overlaps | `subsetByOverlaps(a, b)` |
-| `rtracklayer` | R | Package that reads and writes BED, GFF and bigWig as GenomicRanges | `import("<in_bed>")` |
+| `rtracklayer` | R | Package that reads and writes BED, GFF and bigWig as GenomicRanges | `import("<in.bed>")` |
 | `sesame` | R | Package for methylation arrays; an alternative to minfi that supports EPIC v2 | `betas <- openSesame("<idat_dir>")` |
 | `limma` | R | Package for linear models across many features; finds differentially methylated sites | `fit <- eBayes(lmFit(mvals, design))` |
 | `missMethyl` | R | Package for gene-set enrichment of array CpGs that corrects for probes per gene | `gometh(sig.cpg = <sig_cpgs>, all.cpg = <all_cpgs>, array.type = "EPIC")` |
