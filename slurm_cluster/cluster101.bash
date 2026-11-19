@@ -1,7 +1,7 @@
 # Accessing and setting up to use the cluster on MobaXterm
 
 # First you see:
-<P-number>@hpcloginresearch02.prod1.umcinfra.nl's password: 
+"<P-number>"@hpcloginresearch02.prod1.umcinfra.nl's password: 
 # login like normal
 
 # Should see your account on the login node:
