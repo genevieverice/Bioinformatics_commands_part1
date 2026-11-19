@@ -18,8 +18,8 @@ A quick reference for some general bioinformatics terminology/tools/tasks, and (
   - [format_conversion.py](format_conversion/format_conversion.py)
 - [bam_files/](bam_files)
   - [bam_files.bash](bam_files/bam_files.bash): inspect and subset BAM files with samtools
-- [modified_bases/](modified_bases)
-  - [modified_bases.bash](modified_bases/modified_bases.bash): pile up 6mA, 5mC and 5hmC with modkit and fibertools
+- [pileup/](pileup)
+  - [pileup.bash](pileup/pileup.bash): pile up 6mA, 5mC and 5hmC with modkit and fibertools
 - [genomic_intervals/](genomic_intervals)
   - [genomic_intervals.bash](genomic_intervals/genomic_intervals.bash): compare sets of positions with bedtools
 - [matrices_plots/](matrices_plots)
