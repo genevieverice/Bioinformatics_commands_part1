@@ -9,6 +9,7 @@ A quick reference for some general bioinformatics terminology/tools/tasks, and (
 
 ## Vocabulary 
 | Category | Term | Definition |
+| --- | --- | --- |
 | General | Workflow (pipeline) | Several steps chained into a full analysis |
 | General | Reproducibility | Being able to rerun an analysis and get the same result |
 | General | Dependency | Software another tool needs in order to run |
@@ -160,6 +161,7 @@ A quick reference for some general bioinformatics terminology/tools/tasks, and (
 
 ## Tools and Tasks
 | Tool | Language | Usage | Example | 
+| --- | --- | --- | --- |
 | `head` | bash | Prints the first lines of a file, so you can check its layout without opening all of it | `head -n 5 <table_csv>` |
 | `wc` | bash | Counts lines, words or characters; with `-l` it gives the number of rows in a file | `wc -l <table_csv>` |
 | `cut` | bash | Keeps chosen columns of a delimited text file | `cut -d, -f1,3 <table_csv> > <out_csv>` |
