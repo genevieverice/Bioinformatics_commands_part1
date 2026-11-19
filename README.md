@@ -212,11 +212,11 @@ A quick reference for some general bioinformatics terminology/tools/tasks, and (
 | `man` | bash | Opens the manual for a command | `man sort` |
 | `nano` | bash | A simple text editor inside the terminal | `nano <file>` |
 | `dorado` | bash | Oxford Nanopore's basecaller; turns raw signal into reads and calls modified bases | `dorado basecaller sup <pod5_dir> --modified-bases 6mA > <calls.bam>` |
-| `minimap2` | bash | Aligns long reads to a reference; `-y` carries the modification tags over | `samtools fastq -T MM,ML <calls.bam> \| minimap2 -ax map-ont -y <ref.fasta> - \| samtools sort -o <sorted.bam>` |
-| `pbmm2` | bash | PacBio's wrapper around minimap2 for aligning HiFi BAMs | `pbmm2 align <ref.fasta> <in.bam> <out.bam> --sort` |
+| `minimap2` | bash | Aligns long reads to a reference; `-y` carries the modification tags over | `samtools fastq -T MM,ML <calls.bam> \| minimap2 -ax map-ont -y ~/GRCh38.fa - \| samtools sort -o <sorted.bam>` |
+| `pbmm2` | bash | PacBio's wrapper around minimap2 for aligning HiFi BAMs | `pbmm2 align ~/GRCh38.fa <in.bam> <out.bam> --sort` |
 | `modkit summary` | bash | Reports which modifications a BAM contains and how many calls pass the threshold | `modkit summary <in.bam>` |
 | `aligned_bam_to_cpg_scores` | bash | PacBio's pb-CpG-tools; piles up 5mC at CpG sites from HiFi BAMs | `aligned_bam_to_cpg_scores --bam <in.bam> --output-prefix <out_prefix>` |
-| `MethylDackel` | bash | Extracts per-CpG methylation from bisulfite-sequencing BAMs | `MethylDackel extract <ref.fasta> <in.bam>` |
+| `MethylDackel` | bash | Extracts per-CpG methylation from bisulfite-sequencing BAMs | `MethylDackel extract ~/GRCh38.fa <in.bam>` |
 | `bismark` | bash | Aligns bisulfite-sequencing reads and calls methylation | `bismark --genome <genome_dir> -1 <R1.fastq.gz> -2 <R2.fastq.gz>` |
 | `pandas` | Python | Library for tables (data frames); reads CSVs, filters sites, joins metadata, reshapes per-sample files into one wide matrix | `d = pd.read_csv("<table.csv>")` |
 | `matplotlib` | Python | Library for plotting; scatter plots and multi-page PDFs | `plt.scatter(d["<x_column>"], d["<y_column>"])` |

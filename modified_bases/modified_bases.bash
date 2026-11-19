@@ -8,7 +8,7 @@
 modkit pileup <in.bam> <out_bedmethyl.bed> --region chrM --threads <threads>
 
 ## only reference adenines, with one fixed threshold for every sample
-modkit pileup <in.bam> <out_bedmethyl.bed> --ref <ref.fasta> --motif A 0 --region chrM --filter-threshold A:<threshold> --threads <threads>
+modkit pileup <in.bam> <out_bedmethyl.bed> --ref ~/GRCh38.fa --motif A 0 --region chrM --filter-threshold A:<threshold> --threads <threads>
 
 ## keep the bedMethyl, then make the CSV (&& runs awk only if modkit succeeded)
 modkit pileup <in.bam> <out_bedmethyl.bed> --region chrM --threads <threads> &&

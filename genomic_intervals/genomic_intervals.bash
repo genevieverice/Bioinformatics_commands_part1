@@ -11,4 +11,4 @@ bedtools intersect -a <in_bedmethyl.bed> -b <positions.bed> -wa -wb > <out.bed>
 bedtools intersect -a <a.bed> -b <b.bed> -v > <out.bed>
 
 ## sequence of each interval
-bedtools getfasta -fi <ref.fasta> -bed <regions.bed> -fo <out.fasta>
+bedtools getfasta -fi ~/GRCh38.fa -bed <regions.bed> -fo <out.fasta>
