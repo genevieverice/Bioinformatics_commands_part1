@@ -7,10 +7,10 @@
 tmux new -s <session_name>
 
 ## log in to a worker node
-srun -w <worker_node> -p <partition> --ntasks=1 --cpus-per-task=<threads> --mem=<memory_gb>G --time=<hh:mm:ss> --pty bash -i
+srun -w <worker#> -p artemis --ntasks=1 --cpus-per-task=<threads> --mem=<memory_gb>G --time=<hh:mm:ss> --pty bash -i
 
 ## connect to the network drive
-kinit <user>@<realm>
+kinit <P-number>@AMSTERDAMUMC.UMCINFRA.NL
 
 ## detach from the session (everything keeps running)
 # Ctrl+b, d

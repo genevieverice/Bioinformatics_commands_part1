@@ -11,11 +11,11 @@
 sinfo -N -o "%N %t %c %C %m %e" 
 
 # For worker nodes 1-9 use:
-srun -w worker01 --ntasks=1 --cpus-per-task=1 --time=05:00:00 --pty bash -i
+srun -w <worker#> --ntasks=1 --cpus-per-task=1 --time=05:00:00 --pty bash -i
 
 # For worker nodes 10-14
-srun -w worker12 -p artemis --ntasks=1 --cpus-per-task=2 --time=08:00:00 --pty bash -i
-srun -w worker12 -p artemis --ntasks=1 --cpus-per-task=4 --mem=12G --time=08:00:00 --pty bash -i
+srun -w <worker#> -p artemis --ntasks=1 --cpus-per-task=2 --time=08:00:00 --pty bash -i
+srun -w <worker#> -p artemis --ntasks=1 --cpus-per-task=4 --mem=12G --time=08:00:00 --pty bash -i
 
 # Connect to L-drive
 kinit <P-number>@AMSTERDAMUMC.UMCINFRA.NL
