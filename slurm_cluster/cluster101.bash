@@ -1,11 +1,11 @@
 # Accessing and setting up to use the cluster on MobaXterm
 
 # First you see:
-"<P-number>"@hpcloginresearch02.prod1.umcinfra.nl's password: 
+# <P-number>@hpcloginresearch02.prod1.umcinfra.nl's password: 
 # login like normal
 
 # Should see your account on the login node:
-[<P-number>@hpcloginresearch02 ~]$
+# [<P-number>@hpcloginresearch02 ~]$
 
 # See what worker nodes are available, with available CPUS A/I/O/T (allocated/idle/other/total) and memory
 sinfo -N -o "%N %t %c %C %m %e" 
