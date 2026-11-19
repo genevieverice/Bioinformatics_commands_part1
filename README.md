@@ -2,9 +2,32 @@
 A quick reference for some general bioinformatics terminology/tools/tasks, and (epi)genetics analysis of nanopore data
 
 ## Contents
-[]
-[]
-[]
+- [Vocabulary](#vocabulary)
+- [Tools and Tasks](#tools-and-tasks)
+- [slurm_cluster/](slurm_cluster): working on the cluster
+  - [cluster101.bash](slurm_cluster/cluster101.bash): logging in, worker nodes, L-drive, conda setup
+  - [slurm_jobs.bash](slurm_cluster/slurm_jobs.bash): job options, batch scripts, checking on jobs
+  - [tmux.bash](slurm_cluster/tmux.bash): keeping sessions running with tmux
+- [tables/](tables): looking at and joining text tables
+  - [tables.bash](tables/tables.bash): inspect, filter and count in csv/tsv/txt files
+  - [tables.R](tables/tables.R): join two tables on a shared column
+  - [tables.py](tables/tables.py): join two tables on a shared column
+- [format_conversion/](format_conversion): converting between csv, tsv, bed and bedMethyl
+  - [format_conversion.bash](format_conversion/format_conversion.bash)
+  - [format_conversion.R](format_conversion/format_conversion.R)
+  - [format_conversion.py](format_conversion/format_conversion.py)
+- [bam_files/](bam_files)
+  - [bam_files.bash](bam_files/bam_files.bash): inspect and subset BAM files with samtools
+- [modified_bases/](modified_bases)
+  - [modified_bases.bash](modified_bases/modified_bases.bash): pile up 6mA, 5mC and 5hmC with modkit and fibertools
+- [genomic_intervals/](genomic_intervals)
+  - [genomic_intervals.bash](genomic_intervals/genomic_intervals.bash): compare sets of positions with bedtools
+- [matrices_plots/](matrices_plots)
+  - [matrices_plots.py](matrices_plots/matrices_plots.py): per-sample CSVs to a wide matrix, correlations, plots
+- [elastic_net/](elastic_net)
+  - [elastic_net.R](elastic_net/elastic_net.R): age prediction with glmnet and leave-one-out cross-validation
+- [epic_arrays/](epic_arrays)
+  - [epic_arrays.R](epic_arrays/epic_arrays.R): IDAT files to beta values, epigenetic clocks
 
 
 ## Vocabulary 
